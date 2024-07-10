@@ -1,0 +1,6 @@
+<div class="message-container">
+  <span class="message-header">#{{ no }} - {{ message.user }} : {{ message.status }}</span>
+  <div class="message-body" [ngClass]="{ 'draft-message': message.status === 'draft' }">
+    {{ message.text }}
+  </div>
+</div>

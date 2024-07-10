@@ -1,0 +1,13 @@
+<div *ngIf="!message.isEmpty()">
+  <app-message [message]="message" no="preview"></app-message>
+</div>
+<form (ngSubmit)="onSubmit()">
+  <label class="message-label">
+    <div>Write Message</div>
+    <textarea class="message-textarea" required name="text" [(ngModel)]="message.text"></textarea>
+  </label>
+  <button type="submit" [disabled]="message.status === 'pending'" class="submit-button" [ngClass]="{ 'disabled-button': message.status === 'pending' }">
+    Send
+  </button>
+</form>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>

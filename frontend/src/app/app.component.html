@@ -1,0 +1,21 @@
+<div class="app-container">
+  <header>
+    <nav class="flex justify-between">
+      <div class="text-center">
+        <h1>Chat Tool</h1>
+      </div>
+      <div>
+        <ng-container *ngIf="isLoggedIn; else loggedOut">
+          <a (click)="logout()" class="cursor-pointer">Logout</a>
+        </ng-container>
+        <ng-template #loggedOut>
+          <a routerLink="/login">Login</a>
+          <a routerLink="/register">Register</a>
+        </ng-template>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
